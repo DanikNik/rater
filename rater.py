@@ -1,16 +1,9 @@
 #!/usr/bin/python3
 
 import pandas
-from bs4 import BeautifulSoup
+import plugin_functions
 
-def gen_mirea_table(source):
-        mirea_dataframe = pandas.read_html('{}.html'.format(source), header=0)[0]
-        print('[+]Table {} loaded'.format(source))
-        mirea_dataframe.drop([list(mirea_dataframe)[0], list(mirea_dataframe)[4], list(mirea_dataframe)[5], list(mirea_dataframe)[6]], 1, inplace=True)
-        print('[+]Table {} formated'.format(source))
-        return(mirea_dataframe)
-
-mirea_dataframe_09_03_01 = gen_mirea_table('mirea_09_03_01')
+mirea_dataframe_09_03_01 = plugin_functions.parse_table_mirea('mirea_09_03_01')
 #mirea_dataframe_09_03_02 = gen_mirea_table('mirea_09_03_02')
 
 #df = pandas.DataFrame()
